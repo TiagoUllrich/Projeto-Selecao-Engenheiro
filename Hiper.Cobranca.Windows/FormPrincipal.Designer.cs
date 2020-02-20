@@ -61,6 +61,7 @@
             this.inadimplentesToolStripMenuItem.Name = "inadimplentesToolStripMenuItem";
             this.inadimplentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.inadimplentesToolStripMenuItem.Text = "Inadimplentes";
+            this.inadimplentesToolStripMenuItem.Click += new System.EventHandler(this.inadimplentesToolStripMenuItem_Click);
             // 
             // followUpsToolStripMenuItem
             // 

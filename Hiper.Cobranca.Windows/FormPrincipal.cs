@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hiper.Cobranca.Windows.Situacao;
+using Hiper.Cobranca.Windows.Inadimplente;
 
 namespace Hiper.Cobranca.Windows
 {
@@ -22,6 +23,12 @@ namespace Hiper.Cobranca.Windows
         {
             FrmSituacao frmSituacao = new FrmSituacao();
             frmSituacao.ShowDialog();
+        }
+
+        private void inadimplentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInadimplente frmInadimplente = new FrmInadimplente();
+            frmInadimplente.ShowDialog();
         }
     }
 }

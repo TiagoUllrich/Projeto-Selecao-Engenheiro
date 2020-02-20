@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 
 namespace Hiper.Cobranca.Dados.DataObjects
 {
-    public class SituacaoDAO : IDisposable
+    public class InadimplenteDAO  : IDisposable
     {
         HiperCobrancaContext hiperCobrancaContext;
 
-        public SituacaoDAO(HiperCobrancaContext context)
+        public InadimplenteDAO(HiperCobrancaContext context)
         {
             if (context != null) hiperCobrancaContext = context;
             else hiperCobrancaContext = new HiperCobrancaContext();
@@ -21,50 +21,56 @@ namespace Hiper.Cobranca.Dados.DataObjects
             hiperCobrancaContext.Dispose();
         }
 
-        public Situacao Insert(Situacao situacao)
+        public Inadimplente Insert(Inadimplente inadimplente)
         {
             try
             {
-                Situacao situacaoAdd = this.hiperCobrancaContext.Situacoes.Add(situacao);
+                Inadimplente inadimplenteAdd = this.hiperCobrancaContext.Inadimplentes.Add(inadimplente);
                 hiperCobrancaContext.SaveChanges();
 
-                return situacaoAdd;
+                return inadimplenteAdd;
             }
             catch (Exception exc)
             {
+
                 throw exc;
             }
         }
 
-        public Situacao UpdatePorId(Situacao situacao)
+        public Inadimplente UpdatePorId(Inadimplente inadimplente)
         {
             try
             {
-                Situacao situacaoAtualizar = this.hiperCobrancaContext.Situacoes.FirstOrDefault(st => st.ID == situacao.ID);
-                situacaoAtualizar.Descricao = situacao.Descricao;
+                Inadimplente inadimplenteAtualizar = this.hiperCobrancaContext.Inadimplentes.FirstOrDefault(st => st.ID == inadimplente.ID);
+
+                inadimplenteAtualizar.Nome = inadimplente.Nome;
+                inadimplenteAtualizar.CNPJ = inadimplente.CNPJ;
+                inadimplenteAtualizar.TelefoneParaContato1 = inadimplente.TelefoneParaContato1;
+                inadimplenteAtualizar.TelefoneParaContato2 = inadimplente.TelefoneParaContato2;
                 this.hiperCobrancaContext.SaveChanges();
 
-                return situacaoAtualizar;
+                return inadimplenteAtualizar;
 
             }
             catch (Exception exc)
             {
+
                 throw exc;
             }
         }
 
-        public Situacao UpdatePorEntidade(Situacao situacao)
+        public Inadimplente UpdatePorEntidade(Inadimplente inadimplente)
         {
             try
             {
-                this.hiperCobrancaContext.Entry(situacao).State = System.Data.Entity.EntityState.Modified;
+                this.hiperCobrancaContext.Entry(inadimplente).State = System.Data.Entity.EntityState.Modified;
                 this.hiperCobrancaContext.SaveChanges();
 
-                return situacao;
-
+                return inadimplente;
             }
             catch (Exception exc)
             {
+
                 throw exc;
             }
         }
@@ -73,14 +79,15 @@ namespace Hiper.Cobranca.Dados.DataObjects
         {
             try
             {
-                Situacao situacaoRemover = this.hiperCobrancaContext.Situacoes.FirstOrDefault(st => st.ID == ID);
-                situacaoRemover.Excluido = true;                
+                Inadimplente inadimplenteRemover = this.hiperCobrancaContext.Inadimplentes.FirstOrDefault(st => st.ID == ID);
+                inadimplenteRemover.Excluido = true;
                 this.hiperCobrancaContext.SaveChanges();
 
                 return true;
             }
             catch (Exception exc)
             {
+
                 throw exc;
             }
         }
@@ -89,10 +96,11 @@ namespace Hiper.Cobranca.Dados.DataObjects
         {
             try
             {
-                Situacao situacaoRemover = this.hiperCobrancaContext.Situacoes.FirstOrDefault(st => st.ID == ID);
-                this.hiperCobrancaContext.Situacoes.Remove(situacaoRemover);
+                Inadimplente inadimplenteRemover = this.hiperCobrancaContext.Inadimplentes.FirstOrDefault(st => st.ID == ID);
+                this.hiperCobrancaContext.Inadimplentes.Remove(inadimplenteRemover);
                 this.hiperCobrancaContext.SaveChanges();
                 e = null;
+
                 return true;
             }
             catch (Exception exc)
@@ -102,11 +110,11 @@ namespace Hiper.Cobranca.Dados.DataObjects
             }
         }
 
-        public IQueryable<Situacao> GetAll()
+        public IQueryable<Inadimplente> GetWhere(Expression<Func<Inadimplente,bool>> predicate)
         {
             try
             {
-                return this.hiperCobrancaContext.Situacoes.AsQueryable();
+                return this.hiperCobrancaContext.Inadimplentes.Where(predicate);
             }
             catch (Exception exc)
             {
@@ -114,26 +122,15 @@ namespace Hiper.Cobranca.Dados.DataObjects
             }
         }
 
-        public IQueryable<Situacao> GetWhere(Expression<Func<Situacao,bool>> predicate)
+        public Inadimplente GetById(long ID)
         {
             try
             {
-                return this.hiperCobrancaContext.Situacoes.Where(predicate);
+                return this.hiperCobrancaContext.Inadimplentes.FirstOrDefault(st => st.ID == ID);
             }
             catch (Exception exc)
             {
-                throw exc;
-            }
-        }
 
-        public Situacao GetById(long ID)
-        {
-            try
-            {
-                return this.hiperCobrancaContext.Situacoes.FirstOrDefault(st => st.ID == ID);
-            }
-            catch (Exception exc)
-            {
                 throw exc;
             }
         }

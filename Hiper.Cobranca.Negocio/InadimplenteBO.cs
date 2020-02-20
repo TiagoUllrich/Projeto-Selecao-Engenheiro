@@ -7,52 +7,25 @@ using Hiper.Cobranca.Dados.Context;
 using Hiper.Cobranca.Dados.DataObjects;
 using Hiper.Cobranca.Dados.Models;
 
-
 namespace Hiper.Cobranca.Negocio
 {
-    public class SituacaoBO : IDisposable
+    public class InadimplenteBO : IDisposable
     {
-        SituacaoDAO situacaoDAO;
+        InadimplenteDAO inadimplenteDAO;
 
         HiperCobrancaContext hiperContext;
 
-        public SituacaoBO()
+        public InadimplenteBO()
         {
             this.hiperContext = new HiperCobrancaContext();
-            situacaoDAO = new SituacaoDAO(hiperContext);
+            inadimplenteDAO = new InadimplenteDAO(hiperContext);
         }
 
-        public List<Situacao> GetTodasSituacoesNaoExcluidas()
+        public List<Inadimplente> GetTodosInadimplentesNaoExcluidos()
         {
             try
             {
-                return situacaoDAO.GetWhere(it => it.Excluido != true).ToList();
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
-        }
-
-        public List<Situacao> GetTodasSituacoesExcluidas()
-        {
-            try
-            {
-                return situacaoDAO.GetWhere(it => it.Excluido == true).ToList();
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
-        }
-
-        public List<Situacao> GetSituacoesPorNome(string nome)
-        {
-            try
-            {
-
-                return situacaoDAO.GetWhere(st => st.Descricao.Contains(nome)).ToList();
-
+                return inadimplenteDAO.GetWhere(it => it.Excluido != true).ToList();
             }
             catch (Exception exc)
             {
@@ -61,11 +34,50 @@ namespace Hiper.Cobranca.Negocio
             }
         }
 
-        public bool NovaSituacao(Situacao situacao, out Exception exception)
+        public List<Inadimplente> GetTodosInadimplentesExcluidos()
         {
             try
             {
-                situacaoDAO.Insert(situacao);
+                return inadimplenteDAO.GetWhere(it => it.Excluido == true).ToList();
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+        }     
+
+        public List<Inadimplente> GetInadimplentesPorNome(string nome)
+        {
+            try
+            {
+                return inadimplenteDAO.GetWhere(st => st.Nome.Contains(nome)).ToList();
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+        }
+
+        public List<Inadimplente> GetInadimplentesPorCNPJ(string cnpj)
+        {
+            try
+            {
+                return inadimplenteDAO.GetWhere(st => st.CNPJ.Contains(cnpj)).ToList();
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+        }
+
+        public bool NovoInadimplente(Inadimplente inadimplente, out Exception exception)
+        {
+            try
+            {
+                inadimplenteDAO.Insert(inadimplente);
                 exception = null;
 
                 return true;
@@ -77,12 +89,11 @@ namespace Hiper.Cobranca.Negocio
             }
         }
 
-
-        public bool AlterarSituacao(Situacao situacao, out Exception exception)
+        public bool AlterarInadimplente(Inadimplente inadimplente, out Exception exception)
         {
             try
             {
-                situacaoDAO.UpdatePorEntidade(situacao);
+                inadimplenteDAO.UpdatePorEntidade(inadimplente);
                 exception = null;
 
                 return true;
@@ -98,7 +109,7 @@ namespace Hiper.Cobranca.Negocio
         {
             try
             {
-                situacaoDAO.DeleteLogico(id);
+                inadimplenteDAO.DeleteLogico(id);
                 return true;
             }
             catch (Exception exc)
@@ -107,22 +118,22 @@ namespace Hiper.Cobranca.Negocio
             }
         }
 
-        public Situacao BuscarSituacaoPorId(long ID)
+        public Inadimplente BuscarInadimplentePorId(long ID)
         {
             try
             {
-                return this.situacaoDAO.GetById(ID);
-
+                return this.inadimplenteDAO.GetById(ID);
             }
             catch (Exception exc)
             {
+
                 throw exc;
             }
         }
 
         public void Dispose()
         {
-            this.situacaoDAO.Dispose();            
+            this.inadimplenteDAO.Dispose();
         }
     }
 }

@@ -40,7 +40,7 @@
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(25, 13);
+            this.lblDescricao.Location = new System.Drawing.Point(12, 22);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(68, 13);
             this.lblDescricao.TabIndex = 9;
@@ -48,14 +48,14 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(27, 29);
+            this.txtDescricao.Location = new System.Drawing.Point(14, 38);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(234, 20);
             this.txtDescricao.TabIndex = 8;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(174, 80);
+            this.btnCancelar.Location = new System.Drawing.Point(161, 89);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -65,7 +65,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(35, 80);
+            this.btnSalvar.Location = new System.Drawing.Point(22, 89);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 6;
@@ -77,7 +77,7 @@
             // 
             this.lblMensagemErro.AutoSize = true;
             this.lblMensagemErro.ForeColor = System.Drawing.Color.Red;
-            this.lblMensagemErro.Location = new System.Drawing.Point(32, 55);
+            this.lblMensagemErro.Location = new System.Drawing.Point(18, 61);
             this.lblMensagemErro.Name = "lblMensagemErro";
             this.lblMensagemErro.Size = new System.Drawing.Size(0, 13);
             this.lblMensagemErro.TabIndex = 10;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 129);
+            this.ClientSize = new System.Drawing.Size(260, 121);
             this.Controls.Add(this.lblMensagemErro);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.txtDescricao);
@@ -94,7 +94,6 @@
             this.Controls.Add(this.btnSalvar);
             this.Name = "FrmAlterarSituacao";
             this.Text = "Alterar Situação";
-            
             this.Load += new System.EventHandler(this.FrmAlterarSituacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

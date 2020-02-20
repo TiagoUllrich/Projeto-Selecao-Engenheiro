@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\HiperCobrancaContext.cs" />
+    <Compile Include="DataObjects\InadimplenteDAO.cs" />
     <Compile Include="DataObjects\SituacaoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

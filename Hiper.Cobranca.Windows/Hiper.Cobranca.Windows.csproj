@@ -63,6 +63,24 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inadimplente\FrmAlterarInadimplente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inadimplente\FrmAlterarInadimplente.Designer.cs">
+      <DependentUpon>FrmAlterarInadimplente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inadimplente\FrmInadimplente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inadimplente\FrmInadimplente.Designer.cs">
+      <DependentUpon>FrmInadimplente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inadimplente\FrmIncluirInadimplente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inadimplente\FrmIncluirInadimplente.Designer.cs">
+      <DependentUpon>FrmIncluirInadimplente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Situacao\FrmAlterarSituacao.cs">
@@ -85,6 +103,15 @@
     </Compile>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inadimplente\FrmAlterarInadimplente.resx">
+      <DependentUpon>FrmAlterarInadimplente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inadimplente\FrmInadimplente.resx">
+      <DependentUpon>FrmInadimplente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inadimplente\FrmIncluirInadimplente.resx">
+      <DependentUpon>FrmIncluirInadimplente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,7 +159,6 @@
   <ItemGroup>
     <Folder Include="AnalistaFinanceiro\" />
     <Folder Include="FollowUpInadimplente\" />
-    <Folder Include="Inadimplente\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

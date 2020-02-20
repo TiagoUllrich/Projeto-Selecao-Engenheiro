@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBInitializerBO.cs" />
+    <Compile Include="InadimplenteBO.cs" />
     <Compile Include="SituacaoBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
