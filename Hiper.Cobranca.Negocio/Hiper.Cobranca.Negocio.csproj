@@ -56,6 +56,7 @@
     <Compile Include="InadimplenteBO.cs" />
     <Compile Include="SituacaoBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hiper.Cobranca.Dados.Models\Hiper.Cobranca.Dados.Models.csproj">

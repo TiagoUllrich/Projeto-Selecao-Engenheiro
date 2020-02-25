@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Hiper.Cobranca.Negocio;
 using Hiper.Cobranca.Dados.Models;
+using System.Text.RegularExpressions;
 
 namespace Hiper.Cobranca.Windows.Inadimplente
 {
@@ -16,14 +17,16 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         private void btnSalvarInadimplente_Click(object sender, EventArgs e)
         {
+            var cnpj = Regex.Replace(this.mskCNPJInadimplente.Text, @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]", "");
+
             if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text))
             {
-                if (InadimplenteBO.ValidaCNPJ(this.txtCNPJInadimplente.Text))
+                if (Util.ValidaCNPJ(cnpj))
                 {
                     Cobranca.Dados.Models.Inadimplente objSalvar = new Dados.Models.Inadimplente()
                     {
-                        Nome = this.txtNomeInadimplente.Text,
-                        CNPJ = this.mskCNPJInadimplente.Text,
+                        Nome = this.txtNomeInadimplente.Text,                        
+                        CNPJ = cnpj,
                         TelefoneParaContato1 = int.Parse(this.txtTelefone1Inadimplente.Text),
                         TelefoneParaContato2 = int.Parse(this.txtTelefone2Inadimplente.Text),
                         Excluido = false
@@ -32,30 +35,26 @@ namespace Hiper.Cobranca.Windows.Inadimplente
                     Exception exc;
                     if (inadimplenteBO.NovoInadimplente(objSalvar, out exc))
                     {
-                        this.lblMensagemErro.ForeColor = Color.Blue;
-                        this.lblMensagemErro.Text = "Salvo com sucesso.";
+                        MessageBox.Show("Salvo com sucesso.");
 
                         this.Close();
                     }
                     else
                     {
-                        this.lblMensagemErro.ForeColor = Color.Red;
-                        this.lblMensagemErro.Text = "Erro ao salvar nova situacao - ERRO:[ " + exc.Message + "]";
+                        MessageBox.Show("Erro ao salvar nova situacao - ERRO:[ " + exc.Message + "]");
                     }
 
                     
                 }
                 else
                 {
-                    this.lblMensagemErro.ForeColor = Color.Red;
-                    this.lblMensagemErro.Text = "CNPJ inválido";
+                    MessageBox.Show(cnpj);
                 }
                 
             }
             else
             {
-                this.lblMensagemErro.ForeColor = Color.Red;
-                this.lblMensagemErro.Text = "Não foi informado nenhuma descrição.";
+                MessageBox.Show("Não foi informado nenhuma descrição.");
             }
         }
 
@@ -69,7 +68,7 @@ namespace Hiper.Cobranca.Windows.Inadimplente
             inadimplenteBO = new InadimplenteBO();
             this.lblMensagemErro.Text = "";
             this.txtNomeInadimplente.Text = "";
-            this.txtCNPJInadimplente.Text = "";
+            this.mskCNPJInadimplente.Text = "";
             this.txtTelefone1Inadimplente.Text = "";
             this.txtTelefone2Inadimplente.Text = "";
         }

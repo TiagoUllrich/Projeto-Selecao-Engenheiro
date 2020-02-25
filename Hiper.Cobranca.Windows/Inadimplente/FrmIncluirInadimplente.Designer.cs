@@ -33,7 +33,6 @@
             this.btnSalvarInadimplente = new System.Windows.Forms.Button();
             this.txtTelefone2Inadimplente = new System.Windows.Forms.TextBox();
             this.txtTelefone1Inadimplente = new System.Windows.Forms.TextBox();
-            this.txtCNPJInadimplente = new System.Windows.Forms.TextBox();
             this.lblCNPJ = new System.Windows.Forms.Label();
             this.lblTelefone1 = new System.Windows.Forms.Label();
             this.lblTelefone2 = new System.Windows.Forms.Label();
@@ -84,13 +83,6 @@
             this.txtTelefone1Inadimplente.Name = "txtTelefone1Inadimplente";
             this.txtTelefone1Inadimplente.Size = new System.Drawing.Size(234, 20);
             this.txtTelefone1Inadimplente.TabIndex = 28;
-            // 
-            // txtCNPJInadimplente
-            // 
-            this.txtCNPJInadimplente.Location = new System.Drawing.Point(13, 81);
-            this.txtCNPJInadimplente.Name = "txtCNPJInadimplente";
-            this.txtCNPJInadimplente.Size = new System.Drawing.Size(234, 20);
-            this.txtCNPJInadimplente.TabIndex = 27;
             // 
             // lblCNPJ
             // 
@@ -145,10 +137,11 @@
             // 
             // mskCNPJInadimplente
             // 
-            this.mskCNPJInadimplente.Location = new System.Drawing.Point(78, 7);
-            this.mskCNPJInadimplente.Mask = "99.999.999/9999-99";
+            this.mskCNPJInadimplente.BeepOnError = true;
+            this.mskCNPJInadimplente.Location = new System.Drawing.Point(13, 81);
+            this.mskCNPJInadimplente.Mask = "00.000.000/0000-00";
             this.mskCNPJInadimplente.Name = "mskCNPJInadimplente";
-            this.mskCNPJInadimplente.Size = new System.Drawing.Size(100, 20);
+            this.mskCNPJInadimplente.Size = new System.Drawing.Size(105, 20);
             this.mskCNPJInadimplente.TabIndex = 33;
             // 
             // FrmIncluirInadimplente
@@ -162,7 +155,6 @@
             this.Controls.Add(this.btnSalvarInadimplente);
             this.Controls.Add(this.txtTelefone2Inadimplente);
             this.Controls.Add(this.txtTelefone1Inadimplente);
-            this.Controls.Add(this.txtCNPJInadimplente);
             this.Controls.Add(this.lblCNPJ);
             this.Controls.Add(this.lblTelefone1);
             this.Controls.Add(this.lblTelefone2);
@@ -184,7 +176,6 @@
         private System.Windows.Forms.Button btnSalvarInadimplente;
         private System.Windows.Forms.TextBox txtTelefone2Inadimplente;
         private System.Windows.Forms.TextBox txtTelefone1Inadimplente;
-        private System.Windows.Forms.TextBox txtCNPJInadimplente;
         private System.Windows.Forms.Label lblCNPJ;
         private System.Windows.Forms.Label lblTelefone1;
         private System.Windows.Forms.Label lblTelefone2;
