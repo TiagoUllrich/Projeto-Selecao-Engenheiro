@@ -13,7 +13,7 @@ namespace Hiper.Cobranca.Dados.DataObjects
         public SituacaoDAO(HiperCobrancaContext context)
         {
             if (context != null) hiperCobrancaContext = context;
-            else hiperCobrancaContext = new HiperCobrancaContext();
+            else hiperCobrancaContext = new HiperCobrancaContext(); //teste
         }
 
         public void Dispose()
