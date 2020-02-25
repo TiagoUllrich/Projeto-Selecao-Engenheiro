@@ -8,7 +8,7 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 {
     public partial class FrmIncluirInadimplente : Form
     {
-        InadimplenteBO inadimplenteBO;
+        InadimplenteBO inadimplenteBO = new InadimplenteBO();
         public FrmIncluirInadimplente()
         {
             InitializeComponent();
@@ -18,28 +18,39 @@ namespace Hiper.Cobranca.Windows.Inadimplente
         {
             if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text))
             {
-                Cobranca.Dados.Models.Inadimplente objSalvar = new Dados.Models.Inadimplente()
+                if (InadimplenteBO.ValidaCNPJ(this.txtCNPJInadimplente.Text))
                 {
-                    Nome = this.txtNomeInadimplente.Text,
-                    CNPJ = this.txtCNPJInadimplente.Text,
-                    //TelefoneParaContato1 = Convert.ToInt32(this.txtTelefone1Inadimplente.Text),
-                    //TelefoneParaContato2 = Convert.ToInt32(this.txtTelefone2Inadimplente.Text),
-                    Excluido = false
-                };
+                    Cobranca.Dados.Models.Inadimplente objSalvar = new Dados.Models.Inadimplente()
+                    {
+                        Nome = this.txtNomeInadimplente.Text,
+                        CNPJ = this.mskCNPJInadimplente.Text,
+                        TelefoneParaContato1 = int.Parse(this.txtTelefone1Inadimplente.Text),
+                        TelefoneParaContato2 = int.Parse(this.txtTelefone2Inadimplente.Text),
+                        Excluido = false
+                    };
 
-                Exception exc;
-                if (inadimplenteBO.NovoInadimplente(objSalvar, out exc))
-                {
-                    this.lblMensagemErro.ForeColor = Color.Blue;
-                    this.lblMensagemErro.Text = "Salvo com sucesso.";
+                    Exception exc;
+                    if (inadimplenteBO.NovoInadimplente(objSalvar, out exc))
+                    {
+                        this.lblMensagemErro.ForeColor = Color.Blue;
+                        this.lblMensagemErro.Text = "Salvo com sucesso.";
 
-                    this.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.lblMensagemErro.ForeColor = Color.Red;
+                        this.lblMensagemErro.Text = "Erro ao salvar nova situacao - ERRO:[ " + exc.Message + "]";
+                    }
+
+                    
                 }
                 else
                 {
                     this.lblMensagemErro.ForeColor = Color.Red;
-                    this.lblMensagemErro.Text = "Erro ao salvar nova situacao - ERRO:[ " + exc.Message + "]";
+                    this.lblMensagemErro.Text = "CNPJ inválido";
                 }
+                
             }
             else
             {
@@ -57,7 +68,10 @@ namespace Hiper.Cobranca.Windows.Inadimplente
         {
             inadimplenteBO = new InadimplenteBO();
             this.lblMensagemErro.Text = "";
-            this.txtNomeInadimplente.Text = "";            
+            this.txtNomeInadimplente.Text = "";
+            this.txtCNPJInadimplente.Text = "";
+            this.txtTelefone1Inadimplente.Text = "";
+            this.txtTelefone2Inadimplente.Text = "";
         }
 
         private void btnCancelarInadimplente_Click(object sender, EventArgs e)

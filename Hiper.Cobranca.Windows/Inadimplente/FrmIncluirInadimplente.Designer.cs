@@ -39,6 +39,7 @@
             this.lblTelefone2 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNomeInadimplente = new System.Windows.Forms.TextBox();
+            this.mskCNPJInadimplente = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblMensagemErro
@@ -142,11 +143,20 @@
             this.txtNomeInadimplente.Size = new System.Drawing.Size(234, 20);
             this.txtNomeInadimplente.TabIndex = 22;
             // 
+            // mskCNPJInadimplente
+            // 
+            this.mskCNPJInadimplente.Location = new System.Drawing.Point(78, 7);
+            this.mskCNPJInadimplente.Mask = "99.999.999/9999-99";
+            this.mskCNPJInadimplente.Name = "mskCNPJInadimplente";
+            this.mskCNPJInadimplente.Size = new System.Drawing.Size(100, 20);
+            this.mskCNPJInadimplente.TabIndex = 33;
+            // 
             // FrmIncluirInadimplente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 270);
+            this.Controls.Add(this.mskCNPJInadimplente);
             this.Controls.Add(this.lblMensagemErro);
             this.Controls.Add(this.btnCancelarInadimplente);
             this.Controls.Add(this.btnSalvarInadimplente);
@@ -160,6 +170,8 @@
             this.Controls.Add(this.txtNomeInadimplente);
             this.Name = "FrmIncluirInadimplente";
             this.Text = "FrmIncluirInadimplente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIncluirInadimplente_FormCloser);
+            this.Load += new System.EventHandler(this.FrmIncluirInadimplente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Label lblTelefone2;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNomeInadimplente;
+        private System.Windows.Forms.MaskedTextBox mskCNPJInadimplente;
     }
 }
