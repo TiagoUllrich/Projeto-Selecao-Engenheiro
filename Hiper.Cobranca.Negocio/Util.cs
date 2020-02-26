@@ -24,8 +24,7 @@ namespace Hiper.Cobranca.Negocio
             int resto;
             string digito;
             string tempCnpj;
-            cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            cnpj = RemoveCaracterCNPJ(cnpj);
 
             if (cnpj.Length != 14)
             {
