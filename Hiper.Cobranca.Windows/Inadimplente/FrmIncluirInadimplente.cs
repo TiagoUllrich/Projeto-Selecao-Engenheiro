@@ -17,7 +17,9 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         private void btnSalvarInadimplente_Click(object sender, EventArgs e)
         {
-            var cnpj = Regex.Replace(this.mskCNPJInadimplente.Text, @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]", "");
+            //string cnpj = this.mskCNPJInadimplente.Text;
+            //Util.RemoveCaracterCNPJ(cnpj);
+            string cnpj = Regex.Replace(this.mskCNPJInadimplente.Text, @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]", "");
 
             if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text))
             {

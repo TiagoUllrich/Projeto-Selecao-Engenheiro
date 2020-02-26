@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Hiper.Cobranca.Negocio
 {
     public static class Util
     {
-        public static string RemoveCaracterCNPJ()
+        public static string RemoveCaracterCNPJ(string cnpj)
         {
+            cnpj = Regex.Replace(cnpj, @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]", "");
 
+            return cnpj;
         }
 
         public static bool ValidaCNPJ(string cnpj)
