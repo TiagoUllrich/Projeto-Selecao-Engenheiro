@@ -17,18 +17,20 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         private void btnSalvarInadimplente_Click(object sender, EventArgs e)
         {
-            string cnpj = Util.RemoveCaracterCNPJ(this.mskCNPJInadimplente.Text);            
+            string cnpj = Util.RemoveCaracterCNPJ(this.mskCNPJInadimplente.Text);
+            string tel1 = Util.RemoveCaracterTelefone(this.mskTelefone1.Text);
+            string tel2 = Util.RemoveCaracterTelefone(this.mskTelefone2.Text);
 
             if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text))
             {
-                if (Util.ValidaCNPJ(cnpj))
+                if (Util.ValidaCNPJ(cnpj) || Util.ValidaTelefone(tel1) || Util.ValidaTelefone(tel2))
                 {
                     Cobranca.Dados.Models.Inadimplente objSalvar = new Dados.Models.Inadimplente()
                     {
                         Nome = this.txtNomeInadimplente.Text,                        
                         CNPJ = cnpj,
-                        TelefoneParaContato1 = int.Parse(this.txtTelefone1Inadimplente.Text),
-                        TelefoneParaContato2 = int.Parse(this.txtTelefone2Inadimplente.Text),
+                        TelefoneParaContato1 = int.Parse(tel1),
+                        TelefoneParaContato2 = int.Parse(tel2),
                         Excluido = false
                     };
 
@@ -48,7 +50,7 @@ namespace Hiper.Cobranca.Windows.Inadimplente
                 }
                 else
                 {
-                    MessageBox.Show(Convert.ToString(Util.ValidaCNPJ(cnpj)));
+                    MessageBox.Show("CNPJ inválido.");
                 }
                 
             }
@@ -69,8 +71,8 @@ namespace Hiper.Cobranca.Windows.Inadimplente
             this.lblMensagemErro.Text = "";
             this.txtNomeInadimplente.Text = "";
             this.mskCNPJInadimplente.Text = "";
-            this.txtTelefone1Inadimplente.Text = "";
-            this.txtTelefone2Inadimplente.Text = "";
+            this.mskTelefone1.Text = "";
+            this.mskTelefone2.Text = "";
         }
 
         private void btnCancelarInadimplente_Click(object sender, EventArgs e)

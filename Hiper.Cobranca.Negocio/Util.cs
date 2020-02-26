@@ -16,6 +16,13 @@ namespace Hiper.Cobranca.Negocio
             return cnpj;
         }
 
+        public static string RemoveCaracterTelefone(string tel)
+        {
+            tel = Regex.Replace(tel, @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]", "");
+
+            return tel;
+        }
+
         public static bool ValidaCNPJ(string cnpj)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -70,6 +77,18 @@ namespace Hiper.Cobranca.Negocio
             }
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
+        }
+
+        public static bool ValidaTelefone(string telefone)
+        {            
+            if (telefone.Length == 14)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
