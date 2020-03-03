@@ -81,7 +81,7 @@ namespace Hiper.Cobranca.Negocio
 
         public static bool ValidaTelefone(string telefone)
         {            
-            if (telefone.Length == 14)
+            if (telefone.Length == 8)
             {
                 return true;
             }

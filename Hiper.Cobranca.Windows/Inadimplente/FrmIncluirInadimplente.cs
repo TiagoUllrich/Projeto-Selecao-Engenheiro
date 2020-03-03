@@ -17,13 +17,16 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         private void btnSalvarInadimplente_Click(object sender, EventArgs e)
         {
-            string cnpj = Util.RemoveCaracterCNPJ(this.mskCNPJInadimplente.Text);
+            string cnpj = Util.RemoveCaracterCNPJ(this.mskCnpjInadimplente.Text);
             string tel1 = Util.RemoveCaracterTelefone(this.mskTelefone1.Text);
             string tel2 = Util.RemoveCaracterTelefone(this.mskTelefone2.Text);
 
-            if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text))
+            //Falta tratar mensagem de exceção de quando os telefones estiverem incorretos
+            if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text) &&
+                !String.IsNullOrEmpty(this.mskCnpjInadimplente.Text) &&
+                !String.IsNullOrEmpty(this.mskTelefone1.Text))
             {
-                if (Util.ValidaCNPJ(cnpj) || Util.ValidaTelefone(tel1) || Util.ValidaTelefone(tel2))
+                if (Util.ValidaCNPJ(cnpj) && Util.ValidaTelefone(tel1) && Util.ValidaTelefone(tel2))
                 {
                     Cobranca.Dados.Models.Inadimplente objSalvar = new Dados.Models.Inadimplente()
                     {
@@ -45,7 +48,6 @@ namespace Hiper.Cobranca.Windows.Inadimplente
                     {
                         MessageBox.Show("Erro ao salvar nova situacao - ERRO:[ " + exc.Message + "]");
                     }
-
                     
                 }
                 else
@@ -70,7 +72,7 @@ namespace Hiper.Cobranca.Windows.Inadimplente
             inadimplenteBO = new InadimplenteBO();
             this.lblMensagemErro.Text = "";
             this.txtNomeInadimplente.Text = "";
-            this.mskCNPJInadimplente.Text = "";
+            this.mskCnpjInadimplente.Text = "";
             this.mskTelefone1.Text = "";
             this.mskTelefone2.Text = "";
         }

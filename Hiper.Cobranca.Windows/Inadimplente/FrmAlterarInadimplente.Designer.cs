@@ -33,19 +33,19 @@
             this.lblTelefone2 = new System.Windows.Forms.Label();
             this.lblTelefone1 = new System.Windows.Forms.Label();
             this.lblCNPJ = new System.Windows.Forms.Label();
-            this.txtCNPJInadimplente = new System.Windows.Forms.TextBox();
-            this.txtTelefone1Inadimplente = new System.Windows.Forms.TextBox();
-            this.txtTelefone2Inadimplente = new System.Windows.Forms.TextBox();
             this.btnSalvarInadimplente = new System.Windows.Forms.Button();
             this.btnCancelarInadimplente = new System.Windows.Forms.Button();
             this.lblMensagemErro = new System.Windows.Forms.Label();
+            this.mskCnpjInadimplente = new System.Windows.Forms.MaskedTextBox();
+            this.mskTelefone1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskTelefone2 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtNomeInadimplente
             // 
             this.txtNomeInadimplente.Location = new System.Drawing.Point(12, 38);
             this.txtNomeInadimplente.Name = "txtNomeInadimplente";
-            this.txtNomeInadimplente.Size = new System.Drawing.Size(234, 20);
+            this.txtNomeInadimplente.Size = new System.Drawing.Size(105, 20);
             this.txtNomeInadimplente.TabIndex = 11;
             // 
             // lblNome
@@ -53,7 +53,7 @@
             this.lblNome.AutoSize = true;
             this.lblNome.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(12, 22);
+            this.lblNome.Location = new System.Drawing.Point(13, 17);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(43, 13);
             this.lblNome.TabIndex = 12;
@@ -64,7 +64,7 @@
             this.lblTelefone2.AutoSize = true;
             this.lblTelefone2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblTelefone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefone2.Location = new System.Drawing.Point(12, 170);
+            this.lblTelefone2.Location = new System.Drawing.Point(13, 165);
             this.lblTelefone2.Name = "lblTelefone2";
             this.lblTelefone2.Size = new System.Drawing.Size(115, 13);
             this.lblTelefone2.TabIndex = 13;
@@ -75,7 +75,7 @@
             this.lblTelefone1.AutoSize = true;
             this.lblTelefone1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblTelefone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefone1.Location = new System.Drawing.Point(12, 120);
+            this.lblTelefone1.Location = new System.Drawing.Point(13, 115);
             this.lblTelefone1.Name = "lblTelefone1";
             this.lblTelefone1.Size = new System.Drawing.Size(115, 13);
             this.lblTelefone1.TabIndex = 14;
@@ -86,36 +86,15 @@
             this.lblCNPJ.AutoSize = true;
             this.lblCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblCNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCNPJ.Location = new System.Drawing.Point(12, 70);
+            this.lblCNPJ.Location = new System.Drawing.Point(13, 65);
             this.lblCNPJ.Name = "lblCNPJ";
             this.lblCNPJ.Size = new System.Drawing.Size(42, 13);
             this.lblCNPJ.TabIndex = 15;
             this.lblCNPJ.Text = "CNPJ:";
             // 
-            // txtCNPJInadimplente
-            // 
-            this.txtCNPJInadimplente.Location = new System.Drawing.Point(12, 86);
-            this.txtCNPJInadimplente.Name = "txtCNPJInadimplente";
-            this.txtCNPJInadimplente.Size = new System.Drawing.Size(234, 20);
-            this.txtCNPJInadimplente.TabIndex = 16;
-            // 
-            // txtTelefone1Inadimplente
-            // 
-            this.txtTelefone1Inadimplente.Location = new System.Drawing.Point(12, 136);
-            this.txtTelefone1Inadimplente.Name = "txtTelefone1Inadimplente";
-            this.txtTelefone1Inadimplente.Size = new System.Drawing.Size(234, 20);
-            this.txtTelefone1Inadimplente.TabIndex = 17;
-            // 
-            // txtTelefone2Inadimplente
-            // 
-            this.txtTelefone2Inadimplente.Location = new System.Drawing.Point(12, 186);
-            this.txtTelefone2Inadimplente.Name = "txtTelefone2Inadimplente";
-            this.txtTelefone2Inadimplente.Size = new System.Drawing.Size(234, 20);
-            this.txtTelefone2Inadimplente.TabIndex = 18;
-            // 
             // btnSalvarInadimplente
             // 
-            this.btnSalvarInadimplente.Location = new System.Drawing.Point(22, 235);
+            this.btnSalvarInadimplente.Location = new System.Drawing.Point(14, 230);
             this.btnSalvarInadimplente.Name = "btnSalvarInadimplente";
             this.btnSalvarInadimplente.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarInadimplente.TabIndex = 19;
@@ -125,7 +104,7 @@
             // 
             // btnCancelarInadimplente
             // 
-            this.btnCancelarInadimplente.Location = new System.Drawing.Point(161, 235);
+            this.btnCancelarInadimplente.Location = new System.Drawing.Point(114, 230);
             this.btnCancelarInadimplente.Name = "btnCancelarInadimplente";
             this.btnCancelarInadimplente.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarInadimplente.TabIndex = 20;
@@ -142,17 +121,41 @@
             this.lblMensagemErro.Size = new System.Drawing.Size(0, 13);
             this.lblMensagemErro.TabIndex = 21;
             // 
+            // mskCnpjInadimplente
+            // 
+            this.mskCnpjInadimplente.Location = new System.Drawing.Point(13, 81);
+            this.mskCnpjInadimplente.Mask = "00.000.000/0000-00";
+            this.mskCnpjInadimplente.Name = "mskCnpjInadimplente";
+            this.mskCnpjInadimplente.Size = new System.Drawing.Size(105, 20);
+            this.mskCnpjInadimplente.TabIndex = 22;
+            // 
+            // mskTelefone1
+            // 
+            this.mskTelefone1.Location = new System.Drawing.Point(13, 131);
+            this.mskTelefone1.Mask = "0000-0000";
+            this.mskTelefone1.Name = "mskTelefone1";
+            this.mskTelefone1.Size = new System.Drawing.Size(62, 20);
+            this.mskTelefone1.TabIndex = 23;
+            // 
+            // mskTelefone2
+            // 
+            this.mskTelefone2.Location = new System.Drawing.Point(13, 181);
+            this.mskTelefone2.Mask = "0000-0000";
+            this.mskTelefone2.Name = "mskTelefone2";
+            this.mskTelefone2.Size = new System.Drawing.Size(62, 20);
+            this.mskTelefone2.TabIndex = 24;
+            // 
             // FrmAlterarInadimplente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 270);
+            this.ClientSize = new System.Drawing.Size(211, 270);
+            this.Controls.Add(this.mskTelefone2);
+            this.Controls.Add(this.mskTelefone1);
+            this.Controls.Add(this.mskCnpjInadimplente);
             this.Controls.Add(this.lblMensagemErro);
             this.Controls.Add(this.btnCancelarInadimplente);
             this.Controls.Add(this.btnSalvarInadimplente);
-            this.Controls.Add(this.txtTelefone2Inadimplente);
-            this.Controls.Add(this.txtTelefone1Inadimplente);
-            this.Controls.Add(this.txtCNPJInadimplente);
             this.Controls.Add(this.lblCNPJ);
             this.Controls.Add(this.lblTelefone1);
             this.Controls.Add(this.lblTelefone2);
@@ -173,11 +176,11 @@
         private System.Windows.Forms.Label lblTelefone2;
         private System.Windows.Forms.Label lblTelefone1;
         private System.Windows.Forms.Label lblCNPJ;
-        private System.Windows.Forms.TextBox txtCNPJInadimplente;
-        private System.Windows.Forms.TextBox txtTelefone1Inadimplente;
-        private System.Windows.Forms.TextBox txtTelefone2Inadimplente;
         private System.Windows.Forms.Button btnSalvarInadimplente;
         private System.Windows.Forms.Button btnCancelarInadimplente;
         private System.Windows.Forms.Label lblMensagemErro;
+        private System.Windows.Forms.MaskedTextBox mskCnpjInadimplente;
+        private System.Windows.Forms.MaskedTextBox mskTelefone1;
+        private System.Windows.Forms.MaskedTextBox mskTelefone2;
     }
 }

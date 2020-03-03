@@ -36,7 +36,7 @@
             this.lblTelefone2 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNomeInadimplente = new System.Windows.Forms.TextBox();
-            this.mskCNPJInadimplente = new System.Windows.Forms.MaskedTextBox();
+            this.mskCnpjInadimplente = new System.Windows.Forms.MaskedTextBox();
             this.mskTelefone1 = new System.Windows.Forms.MaskedTextBox();
             this.mskTelefone2 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
@@ -121,14 +121,14 @@
             this.txtNomeInadimplente.Size = new System.Drawing.Size(105, 20);
             this.txtNomeInadimplente.TabIndex = 22;
             // 
-            // mskCNPJInadimplente
+            // mskCnpjInadimplente
             // 
-            this.mskCNPJInadimplente.BeepOnError = true;
-            this.mskCNPJInadimplente.Location = new System.Drawing.Point(13, 81);
-            this.mskCNPJInadimplente.Mask = "00.000.000/0000-00";
-            this.mskCNPJInadimplente.Name = "mskCNPJInadimplente";
-            this.mskCNPJInadimplente.Size = new System.Drawing.Size(105, 20);
-            this.mskCNPJInadimplente.TabIndex = 33;
+            this.mskCnpjInadimplente.BeepOnError = true;
+            this.mskCnpjInadimplente.Location = new System.Drawing.Point(13, 81);
+            this.mskCnpjInadimplente.Mask = "00.000.000/0000-00";
+            this.mskCnpjInadimplente.Name = "mskCnpjInadimplente";
+            this.mskCnpjInadimplente.Size = new System.Drawing.Size(105, 20);
+            this.mskCnpjInadimplente.TabIndex = 33;
             // 
             // mskTelefone1
             // 
@@ -153,7 +153,7 @@
             this.ClientSize = new System.Drawing.Size(211, 270);
             this.Controls.Add(this.mskTelefone2);
             this.Controls.Add(this.mskTelefone1);
-            this.Controls.Add(this.mskCNPJInadimplente);
+            this.Controls.Add(this.mskCnpjInadimplente);
             this.Controls.Add(this.lblMensagemErro);
             this.Controls.Add(this.btnCancelarInadimplente);
             this.Controls.Add(this.btnSalvarInadimplente);
@@ -181,7 +181,7 @@
         private System.Windows.Forms.Label lblTelefone2;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNomeInadimplente;
-        private System.Windows.Forms.MaskedTextBox mskCNPJInadimplente;
+        private System.Windows.Forms.MaskedTextBox mskCnpjInadimplente;
         private System.Windows.Forms.MaskedTextBox mskTelefone1;
         private System.Windows.Forms.MaskedTextBox mskTelefone2;
     }

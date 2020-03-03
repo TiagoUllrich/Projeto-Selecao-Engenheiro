@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Hiper.Cobranca.Negocio;
+using Hiper.Cobranca.Dados.Models;
+using System.Text.RegularExpressions;
 
 namespace Hiper.Cobranca.Windows.Inadimplente
 {
@@ -22,6 +24,9 @@ namespace Hiper.Cobranca.Windows.Inadimplente
         {
             this.lblMensagemErro.Text = "";
             this.txtNomeInadimplente.Text = "";
+            this.mskCnpjInadimplente.Text = "";
+            this.mskTelefone1.Text = "";
+            this.mskTelefone2.Text = "";
             if (IdInadimplenteEditar.HasValue)
             {
                 objInadimplenteAlterar = inadimplenteBO.BuscarInadimplentePorId(IdInadimplenteEditar.Value);
@@ -40,16 +45,26 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         private void btnSalvarInadimplente_Click(object sender, EventArgs e)
         {
+            string cnpj = Util.RemoveCaracterCNPJ(this.mskCnpjInadimplente.Text);
+            string tel1 = Util.RemoveCaracterTelefone(this.mskTelefone1.Text);
+            string tel2 = Util.RemoveCaracterTelefone(this.mskTelefone2.Text);
+
+            //Falta tratar mensagem de exceção de quando os campos estiverem incorretos
             if (!String.IsNullOrEmpty(this.txtNomeInadimplente.Text) && 
-                !String.IsNullOrEmpty(this.txtCNPJInadimplente.Text) && 
-                !String.IsNullOrEmpty(this.txtTelefone1Inadimplente.Text))
+                !String.IsNullOrEmpty(this.mskCnpjInadimplente.Text) && 
+                !String.IsNullOrEmpty(this.mskTelefone1.Text))
                         
             {
-                if (objInadimplenteAlterar != null)
+                if (objInadimplenteAlterar != null &&
+                    Util.ValidaCNPJ(cnpj) &&
+                    Util.ValidaTelefone(tel1) &&
+                    Util.ValidaTelefone(tel2))
                 {
                     objInadimplenteAlterar.Nome = this.txtNomeInadimplente.Text;
-                    objInadimplenteAlterar.CNPJ = this.txtCNPJInadimplente.Text;
-                    objInadimplenteAlterar.TelefoneParaContato1 = Convert.ToInt32(this.txtTelefone1Inadimplente.Text);
+                    objInadimplenteAlterar.CNPJ = cnpj;
+                    objInadimplenteAlterar.TelefoneParaContato1 = Convert.ToInt32(tel1);
+                    objInadimplenteAlterar.TelefoneParaContato2 = Convert.ToInt32(tel2);
+
                     Exception exc;
                     if (inadimplenteBO.AlterarInadimplente(objInadimplenteAlterar, out exc))
                     {
