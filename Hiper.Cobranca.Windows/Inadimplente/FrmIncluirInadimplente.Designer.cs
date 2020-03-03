@@ -116,7 +116,7 @@
             // 
             // txtNomeInadimplente
             // 
-            this.txtNomeInadimplente.Location = new System.Drawing.Point(13, 33);
+            this.txtNomeInadimplente.Location = new System.Drawing.Point(12, 38);
             this.txtNomeInadimplente.Name = "txtNomeInadimplente";
             this.txtNomeInadimplente.Size = new System.Drawing.Size(105, 20);
             this.txtNomeInadimplente.TabIndex = 22;

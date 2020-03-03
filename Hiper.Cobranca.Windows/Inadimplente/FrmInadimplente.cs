@@ -26,7 +26,7 @@ namespace Hiper.Cobranca.Windows.Inadimplente
         {
             if (!String.IsNullOrEmpty(txtDescricaoInadimplente.Text))
             {
-                CarregarDadosNoGrid(txtDescricaoInadimplente.Text);
+                CarregarDadosNoGrid(txtDescricaoInadimplente.Text);                
             }
             else
             {
@@ -123,14 +123,16 @@ namespace Hiper.Cobranca.Windows.Inadimplente
 
         void CarregarDadosNoGrid(string nomePesquisar)
         {
-            var lstInadimplente = inadimplenteBO.GetInadimplentesPorNome(nomePesquisar);
+            var lstInadimplenteCnpj = inadimplenteBO.GetInadimplentesPorCNPJ(nomePesquisar);
+            var lstInadimplenteNome = inadimplenteBO.GetInadimplentesPorNome(nomePesquisar);
 
             this.gridInadimplentes.DataSource = null;
             this.gridInadimplentes.Rows.Clear();
             this.gridInadimplentes.Columns.Clear();
 
             //configurando datasource
-            this.gridInadimplentes.DataSource = lstInadimplente;
+            this.gridInadimplentes.DataSource = lstInadimplenteNome;
+            this.gridInadimplentes.DataSource = lstInadimplenteCnpj;            
 
             //removendo colunas não necessárias para exibição
             this.gridInadimplentes.Columns.RemoveAt(3);

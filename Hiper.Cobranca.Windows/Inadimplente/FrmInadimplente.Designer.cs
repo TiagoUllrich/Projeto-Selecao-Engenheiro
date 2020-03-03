@@ -43,9 +43,9 @@
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescricao.Location = new System.Drawing.Point(13, 4);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(215, 13);
+            this.lblDescricao.Size = new System.Drawing.Size(97, 13);
             this.lblDescricao.TabIndex = 5;
-            this.lblDescricao.Text = "Pesquise pela descrição da situação";
+            this.lblDescricao.Text = "Pesquisa rápida";
             // 
             // txtDescricaoInadimplente
             // 
